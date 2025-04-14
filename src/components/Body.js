@@ -6,6 +6,8 @@ const Body =() => {
 
     const [listOFRestaurant, setListOfRestaurant] = useState([]);
     const [btnName, setBtnName] = useState("Top Rated Restaurant")
+    const [searchText, setSearchText] = useState("");
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
     useEffect(()=>{
         fetchData();
@@ -17,6 +19,7 @@ const Body =() => {
         const json = await data.json();
         console.log(json);
         setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         
     }
 
@@ -24,19 +27,31 @@ const Body =() => {
 
     return listOFRestaurant.length ===0? (<Shimmer/>) :(
         <div className="body">
+            <input type="text" value ={searchText} onChange={(e)=>{
+                      setSearchText(e.target.value);
+            }} />
+            <button 
+            //Filter the restaurant
+            // update the UI
+            onClick={()=>{
+                 const filteredRestaurant = listOFRestaurant.filter((res)=>(res.info.name.toLowerCase().includes(searchText.toLowerCase())));
+                 setFilteredRestaurant(filteredRestaurant);
+                }}
+            >Search</button>
             <button className="filter-btn" 
             onClick={()=>{
         
                  const filteredList = listOFRestaurant.filter(
-                    (res) => (res.info.avgRating>4.2)
+                    (res) => (res.info.avgRating>4.6)
                );
               setListOfRestaurant(filteredList);
+              setFilteredRestaurant(filteredList);
               setBtnName("All Restaurant") ;
               }}>{btnName}</button>
               
             <div className="card-container">
 
-                {listOFRestaurant.map((restaurant)=>(<RestaurantCard key ={restaurant.info.id} resData = {restaurant}/>))}
+                {filteredRestaurant.map((restaurant)=>(<RestaurantCard key ={restaurant.info.id} resData = {restaurant}/>))}
                 
             </div>
         </div>
