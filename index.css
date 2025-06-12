@@ -1,37 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*{
+    margin: 0;
+    padding: 0;
+}
 .header{
     display: flex;
     justify-content: space-between;
     border: 0;
     border-bottom: 2px solid black;
     width: 100%;
-    position: relative;
-    
+    height: 110px;
+    position: sticky;
+    top: 0;
+    background-color: white; /* Important for visibility */
+    z-index: 1000;            /* So it stays above other elements */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .Logo{
-    width: 100px;
+    width: 110px;
+    padding-left: 130px;
+    padding-bottom: 0;
 }
 
 .nav-items>ul{
     display: flex;
-    font-size: 20px;
+    font-size: 22px;
     list-style-type: none;
-    
+    padding-right: 150px;
+    margin: 20px;
+    color: #02060CE6;  
+}
+
+.nav-link{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+.nav-link:hover{
+    color:#FF5200 ;
 }
 
 .nav-items>ul>li{
+    margin: 60px;
+    text-decoration: none;
+    color: inherit;
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-family: poppins;
+}
+
+.login-btn{
+    padding: 0px;
+    padding-top: 5px;
+    padding-left: 15px;
+    border: none;
+    background-color: white;
+    font-family: poppins;
+    font-size: 22px;
+    font-weight: 600;
     margin: 20px;
+    cursor: pointer;
+}
+
+.login-btn:hover{
+    color: #FF5200;
 }
 
 .res-card{
-    width: 250px;
-    height: 350px;
+    width: 325px;
+    height: 375px;
     border-radius: 5px;
     box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
     padding: 10px;
     margin: 25px;
     cursor: pointer;
+    font-family: poppins;
+    border: none;
 }
+
+.res-card>h5{
+    color: #02060C99;
+    
+}
+
+.multi-line-truncate {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 2; /* Change to 3 if you want 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .res-card:hover {
     transform: scale(1.05);
@@ -46,13 +109,51 @@
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 90px;
+    padding-left: 125px;
 }
 
 .filter-btn{
     margin: 10px;
+    margin-left: 150px;
+    padding: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    background-color: white;
+    font-family: poppins;
+    cursor: pointer;
 }
 
+.search-btn{
+   width: 100px;
+   font-size: 17px;
+   background-color: orange;
+   border: none;
+   border-radius: 10px;
+   border-bottom-left-radius: 0;
+   border-top-left-radius: 0;
+}
+
+.search-btn:hover{
+    transform: scale(1.05);
+}
+
+.search-input{
+  font-weight: 600;
+  font-size: 17px; 
+  height: 40px;
+  width: 600px;
+  padding-left: 20px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.search-div{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
 .shimmer-container{
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +184,145 @@
     margin: 20px;
 }
 
-.login-btn{
-    padding: 10px;
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.res-details{
+    border: 1px solid black;
+    background-color: #171717;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 1000px;
+    height: 230px;
+    padding-top: 25px;
+    padding-left: 20px;
+    margin: 30px;
+    border-radius: 20px;
+    font-size: large;
+    gap: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.res-image{
+   width: 100%;
+   height: 100%;
+   border-radius: 15px;
+   object-fit: cover;
+}
+
+.res-img{
+    width: 320px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.res-info{
+    gap: 20px;
+    padding: 20px;
+}
+
+.card{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* dropdown-css */
+
+.dropdown-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  font-family: sans-serif;
+}
+
+.dropdown-toggle {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 20px;
+  padding-left: 5px;
+}
+
+.dropdown-toggle:hover {
+  background-color: #2563eb;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.title{
+    width: 1000px;
+    padding: 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.dropdown-list {
+  margin-top: 0.5rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.menu-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    width: 950px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.menu-card:hover{
+    background-color: #f3f4f6;
+}
+
+.menu-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-image{
+    width: 100%;
+   height: 100%;
+   border-radius: 15px;
+   object-fit: cover;
+}
+
+.menu-details{
+    font-family: sans-serif;
+    width: 800px;
+    font-size: medium;
+    padding: 25px;
 }
