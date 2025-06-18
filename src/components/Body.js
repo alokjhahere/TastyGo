@@ -2,33 +2,22 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body =() => {
 
-    const [listOFRestaurant, setListOfRestaurant] = useState([]);
+    
     const [btnName, setBtnName] = useState("Top Rated Restaurant")
     const [searchText, setSearchText] = useState("");
-    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [isTopRated, setIsTopRated] = useState(false);
-    
-    
-    useEffect(()=>{
-        fetchData();
-        console.log("useEffect is called");
-        
-    },[])
 
+    //Custom Hook for fetching the body Data
+    const {listOFRestaurant,
+        setListOfRestaurant,
+        filteredRestaurant,
+        setFilteredRestaurant} = useRestaurantList();
     
-    const fetchData = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-
-        const json = await data.json();
-        console.log(json);
-        setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        
-    }
 
     const handleToggle = () =>{
         if(isTopRated){
