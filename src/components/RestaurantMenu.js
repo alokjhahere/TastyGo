@@ -1,22 +1,15 @@
-import { useEffect, useState } from "react";
 import DropDownMenu from "./DropDownMenu";
 import { RES_IMG } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () =>{
-    const [resInfo, setResInfo] = useState(null);
+    
     const {resId} = useParams();
-    useEffect(() =>{
-        fetchData();
-    },[]);
 
-    const fetchData = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65420&lng=77.23730&restaurantId=" + resId);
-        const json = await data.json();
-        setResInfo(json.data);
-        
-    }
+    //Custom Hook for fetching the Data
+    const resInfo = useRestaurantMenu(resId);
     
     const {name, costForTwoMessage, cloudinaryImageId, avgRating, cuisines, areaName} = resInfo?.cards[2]?.card?.card?.info || {};
     const cardArray = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
