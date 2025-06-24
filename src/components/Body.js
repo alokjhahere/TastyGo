@@ -14,7 +14,6 @@ const Body =() => {
 
     //Custom Hook for fetching the body Data
     const {listOFRestaurant,
-        setListOfRestaurant,
         filteredRestaurant,
         setFilteredRestaurant} = useRestaurantList();
     

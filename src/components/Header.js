@@ -15,6 +15,7 @@ const Header = () => {
                 <li><Link to="/about" className="nav-link">About</Link></li>
                 <li><Link to="/contact" className="nav-link">Contact</Link></li>
                 <li><Link to="/" className="nav-link">Cart</Link></li>
+                <li><Link to="/grocery" className="nav-link">Grocery</Link></li>
                 <button className="login-btn" onClick={()=>{
                            btn === "Login"? setBtn("Logout") : setBtn("Login");
                 }}>{btn}</button>
