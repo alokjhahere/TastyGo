@@ -326,3 +326,23 @@
     font-size: medium;
     padding: 25px;
 }
+
+.promoted-container {
+  position: relative;
+}
+
+.promoted-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: linear-gradient(to right, #7e22ce, #ec4899); /* Purple to Pink */
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  z-index: 10;
+}

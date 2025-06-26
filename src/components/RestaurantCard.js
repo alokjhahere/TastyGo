@@ -15,4 +15,22 @@ const RestaurantCard =(props) =>{
     )
 }
 
+//Higher order component, Promoted restaurant Feature
+//contract of the component :
+//input = RestaurantCard, Output = RestaurantCardPromoted
+
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="promoted-container">
+        <label className="promoted-label">Promoted</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
+
+
 export default RestaurantCard;

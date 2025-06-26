@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -33,6 +33,8 @@ const Body =() => {
         }
     }
 
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
     const onlineStatus = useOnlineStatus();
 
     if(onlineStatus===false) return <h1>Please check your Internet Connection</h1>
@@ -60,7 +62,9 @@ const Body =() => {
             <div className="card-container">
 
                 {filteredRestaurant.map((restaurant)=>(
-                    <Link className="card"  to={"/restaurants/"+ restaurant.info.id} key ={restaurant.info.id}><RestaurantCard  resData = {restaurant}/></Link>))}
+                    <Link className="card"  to={"/restaurants/"+ restaurant.info.id} key ={restaurant.info.id}>
+                        {restaurant.info.avgRating>=4.4 ? (<RestaurantCardPromoted resData = {restaurant}/>) : (<RestaurantCard  resData = {restaurant}/>) }
+                        </Link>))}
                 
             </div>
         </div>
