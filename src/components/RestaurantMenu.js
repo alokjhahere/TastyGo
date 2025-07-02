@@ -3,19 +3,18 @@ import { RES_IMG } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import { useState } from "react";
 
 const RestaurantMenu = () =>{
     
     const {resId} = useParams();
-
+    const [showIndex, setShowIndex] = useState(0);
     //Custom Hook for fetching the Data
     const resInfo = useRestaurantMenu(resId);
     
     const {name, costForTwoMessage, cloudinaryImageId, avgRating, cuisines, areaName} = resInfo?.cards[2]?.card?.card?.info || {};
     const cardArray = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
-
-    console.log(cardArray);
 
     return (resInfo===null)?(<Shimmer/>):(
         
@@ -42,7 +41,7 @@ const RestaurantMenu = () =>{
                       if(!itemCards) return null;
                       return(
                         <div key={index} className="menu">
-                            <DropDownMenu title = {title} itemCards = {itemCards}/>
+                            <DropDownMenu title = {title} itemCards = {itemCards} isOpen = {index === showIndex  ? true : false} setShowIndex = {() => setShowIndex(showIndex === index ? null : index)}/>
                         </div>
                       )
                 })}
