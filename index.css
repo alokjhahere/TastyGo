@@ -346,3 +346,25 @@
   letter-spacing: 0.5px;
   z-index: 10;
 }
+
+.button{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 250px;
+    margin: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    background-color: white;
+    font-family: poppins;
+    cursor: pointer;
+}
+
+.input{
+    padding: 10px;
+    border-radius: 10px;
+    font-family: poppins;
+}
+
+.user-input{
+    padding-top: 15px;
+}
