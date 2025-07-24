@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // Code-Splitting for the Grocery store
 // Lazy-loading
@@ -23,18 +26,20 @@ const AppLayout = () =>{
     //Makes an API Call and Recieves UserName and Password
     //Dummy Data
         const data = {
-            name : "Alok Jha"
+            name : ""
         };
         setUserName(data.name);
     }, []);
 
     return(
+        <Provider store={appStore}>
         <UserContext value={{loggedInUser : userName, setUserName}}>
          <div>
            <Header/>
            <Outlet/>
          </div>
         </UserContext>
+        </Provider>
     );
 };
 
@@ -54,6 +59,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact/> 
+            },
+            {
+                path: "/cart",
+                element: <Cart/> 
             },
             {
                 path: "/restaurants/:resId",
