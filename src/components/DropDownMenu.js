@@ -2,8 +2,7 @@ import ItemList from "./ItemList";
 
 const DropDownMenu = (props) =>{
    
-   const {title, itemCards, isOpen, setShowIndex} = props;
- 
+   const {title, itemCards, isOpen, setShowIndex} = props; 
 
    const handleToggle =() =>{
     setShowIndex();

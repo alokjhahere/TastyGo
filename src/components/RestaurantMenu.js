@@ -21,7 +21,7 @@ const RestaurantMenu = () =>{
         <div className="menu-container">
             <div className="res-details">
                 <div className="res-img">
-                    <img className="res-image" src={RES_IMG + cloudinaryImageId}/>
+                    <img className="res-image" src={RES_IMG + cloudinaryImageId} alt="restaurant image"/>
                 </div>
                 <div className="res-info">
                      <h1>{name}</h1>

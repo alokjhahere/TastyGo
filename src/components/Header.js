@@ -20,7 +20,7 @@ const Header = () => {
          </div>
          <div className="nav-items">
              <ul>
-                <li className="nav-link">{onlineStatus? "Online 🟢" : "Offline 🔴"}</li>
+                <li className="nav-link">{onlineStatus? "🟢" : "🔴"}</li>
                 <li><Link to="/" className="nav-link">Home</Link></li>
                 <li><Link to="/about" className="nav-link">About</Link></li>
                 <li><Link to="/contact" className="nav-link">Contact</Link></li>

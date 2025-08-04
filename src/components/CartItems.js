@@ -1,21 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import {addItem} from "../utils/cartSlice"
+import { useDispatch } from "react-redux"
+import { removeItem } from "../utils/cartSlice"
 
-
-const ItemList = ({itemCards}) => {
-
-   const dispatch = useDispatch();
-   const handleAddItem = (item) => {
-       
-          //Dispatch an Action
-          dispatch(addItem(item));
-          
-   }
-   
-
-   
-   
-
+const CartItems = ({itemCards}) => {
+    const dispatch = useDispatch()
+    const handleRemoveItem = (item)=> {
+        //dispatch an action
+        dispatch(removeItem(item));
+    }
     return (
                 <div className="dropdown-list">
                   <ul>
@@ -32,7 +23,7 @@ const ItemList = ({itemCards}) => {
                                 </div>
                                 <div className="menu-img">
                                     <img className="menu-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + imageId}/>
-                                    <button className="add-btn" onClick={() => handleAddItem(item)}>ADD+</button>
+                                    <button className="remove-btn" onClick={() => handleRemoveItem(item)}>Remove-</button>
                                 </div>
                             </div>
                          )
@@ -44,4 +35,4 @@ const ItemList = ({itemCards}) => {
             )
 }
 
-export default ItemList;
+export default CartItems;

@@ -11,6 +11,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 // Code-Splitting for the Grocery store
 // Lazy-loading
@@ -33,12 +34,13 @@ const AppLayout = () =>{
 
     return(
         <Provider store={appStore}>
-        <UserContext value={{loggedInUser : userName, setUserName}}>
+        <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
          <div>
            <Header/>
            <Outlet/>
+           <Footer/>
          </div>
-        </UserContext>
+        </UserContext.Provider>
         </Provider>
     );
 };
@@ -50,7 +52,7 @@ const appRouter = createBrowserRouter([
         children : ([
             {
                 path: "/",
-                element: <Body/> 
+                element: <Body/>
             },
             {
                 path: "/about",

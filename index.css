@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+   
 }
 .header{
     display: flex;
@@ -10,33 +11,45 @@
     border: 0;
     border-bottom: 2px solid black;
     width: 100%;
-    height: 110px;
+    max-width: 2000px;
+    height: 90px;
     position: sticky;
     top: 0;
-    background-color: white; /* Important for visibility */
-    z-index: 1000;            /* So it stays above other elements */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white; 
+    z-index: 1000;            
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    padding-left: 50px;
+}
+
+.body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+  flex-direction: column;
 }
 
 .Logo{
-    width: 110px;
-    padding-left: 70px;
+    width: 90px;
     padding-bottom: 0;
 }
 
+
 .nav-items>ul{
     display: flex;
-    font-size: 22px;
+    font-size: 18px;
     list-style-type: none;
     
     margin: 20px;
-    color: #02060CE6;  
+    color: #02060CE6;
+
+  
 }
 
 .nav-link{
     text-decoration: none;
     color: inherit;
-    font-weight: 600;
+    font-weight: 600;   
 }
 
 .nav-link:hover{
@@ -44,25 +57,33 @@
 }
 
 .nav-items>ul>li{
-    margin: 60px;
+    margin: 50px;
     text-decoration: none;
     color: inherit;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 0;
     font-family: poppins;
+    
 }
 
 .login-btn{
-    padding: 0px;
-    padding-top: 5px;
-    padding-left: 15px;
+    
     border: none;
     background-color: white;
-    font-family: poppins;
-    font-size: 22px;
-    font-weight: 600;
-    margin: 20px;
+    font-weight: 600; 
+    font-size: 18px;
+    margin: 14px;
     cursor: pointer;
+    padding-left: 10px;
+   
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-family: poppins;
+}
+
+.Logo-container {
+  flex-shrink: 0;
 }
 
 .login-btn:hover{
@@ -70,8 +91,9 @@
 }
 
 .res-card{
-    width: 325px;
-    height: 375px;
+    width: 250px;
+    height: 350px;
+    font-size: 13px;
     border-radius: 5px;
     box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
     padding: 10px;
@@ -79,11 +101,16 @@
     cursor: pointer;
     font-family: poppins;
     border: none;
+    object-fit: contain;
 }
 
 .res-card>h5{
     color: #02060C99;
     
+}
+
+.resLogo-container{
+    object-fit: cover;
 }
 
 .multi-line-truncate {
@@ -101,15 +128,19 @@
  }
 
 .res-logo{
-    width: 100% ;
-    height: 50%;
+    width: 100%;
+    height: 250px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 125px;
+    justify-content: center;
+    align-items: center;
+    
+
 }
 
 .filter-btn{
@@ -355,7 +386,8 @@
 .button{
     display: flex;
     justify-content: space-between;
-    padding-right: 250px;
+    padding-right: 165px;
+    padding-left: 15px;
     margin: 10px;
     margin-bottom: 0px;
     border-radius: 10px;
@@ -368,10 +400,13 @@
     padding: 10px;
     border-radius: 10px;
     font-family: poppins;
+   
 }
 
 .user-input{
     padding-top: 15px;
+    
+    
 }
 
 .cart-container{
@@ -397,6 +432,18 @@
     
 }
 
+.remove-btn{
+    margin: 10px;
+    padding: 10px;
+    position: absolute;
+    width: 120px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 700;
+    color: red
+
+}
+
 .add-btn:hover{
     background-color: darkgray;
     
@@ -414,7 +461,93 @@
     background-color: black;
 }
 
+.footer {
+  background-color: #f0f0f5;
+  color: black;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 
 
+}
+
+.footer p {
+  margin: 0;
+  color: black;
+}
 
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* About-css */
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  color: #FF5200;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight-card {
+  background: rgb(236, 128, 39);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-card h3 {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.highlight-card p {
+  font-size: 0.95rem;
+}
+
+.space{
+  height: 155px;
+}
